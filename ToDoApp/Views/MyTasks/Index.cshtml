@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ToDoApp.Models.MyTask>
+@{
+    ViewBag.Title = "My Tasks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Tasks</h2>
+
+@if (!Model.Any())
+{
+    <p>You don't have any tasks at this time.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var task in Model)
+            {
+                <tr>
+                    <td>@task.Name</td>
+                    <td>@task.TaskStatus.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

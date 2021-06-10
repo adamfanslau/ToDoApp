@@ -20,7 +20,7 @@ namespace ToDoApp.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<MyTask> Tasks { get; set; }
+        public DbSet<MyTask> MyTasks { get; set; }
         public DbSet<TaskStatus> TaskStatuses { get; set; }
 
         public ApplicationDbContext()
