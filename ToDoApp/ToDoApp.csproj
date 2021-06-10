@@ -177,11 +177,24 @@
     <Compile Include="Migrations\202106101409140_InitialMigration.Designer.cs">
       <DependentUpon>202106101409140_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106101413337_AddedTaskStatusToMyTask.cs" />
+    <Compile Include="Migrations\202106101413337_AddedTaskStatusToMyTask.Designer.cs">
+      <DependentUpon>202106101413337_AddedTaskStatusToMyTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101416054_PopulateTaskStatusTable.cs" />
+    <Compile Include="Migrations\202106101416054_PopulateTaskStatusTable.Designer.cs">
+      <DependentUpon>202106101416054_PopulateTaskStatusTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101433183_AddedRequiredToTaskName.cs" />
+    <Compile Include="Migrations\202106101433183_AddedRequiredToTaskName.Designer.cs">
+      <DependentUpon>202106101433183_AddedRequiredToTaskName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MyTask.cs" />
+    <Compile Include="Models\TaskStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -261,6 +274,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106101409140_InitialMigration.resx">
       <DependentUpon>202106101409140_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101413337_AddedTaskStatusToMyTask.resx">
+      <DependentUpon>202106101413337_AddedTaskStatusToMyTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101416054_PopulateTaskStatusTable.resx">
+      <DependentUpon>202106101416054_PopulateTaskStatusTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101433183_AddedRequiredToTaskName.resx">
+      <DependentUpon>202106101433183_AddedRequiredToTaskName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

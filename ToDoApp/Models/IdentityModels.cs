@@ -21,6 +21,7 @@ namespace ToDoApp.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<MyTask> Tasks { get; set; }
+        public DbSet<TaskStatus> TaskStatuses { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
