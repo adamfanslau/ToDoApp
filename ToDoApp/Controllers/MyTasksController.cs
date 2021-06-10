@@ -48,5 +48,12 @@ namespace ToDoApp.Controllers
 
             return View("New", myTask);
         }
+
+        public ViewResult Abandoned()
+        {
+            var myTasks = _context.MyTasks.Include(t => t.TaskStatus).ToList();
+
+            return View(myTasks);
+        }
     }
 }

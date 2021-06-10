@@ -17,6 +17,8 @@ namespace ToDoApp.Models
         [Required]
         public string Description { get; set; }
         public DateTime Created { get; set; }
+        
+        [Display(Name = "Deadline (dd/MM/yyyy HH:mm)")]
         public DateTime Deadline { get; set; }
         public TaskStatus TaskStatus { get; set; }
         public int TaskStatusId { get; set; }
