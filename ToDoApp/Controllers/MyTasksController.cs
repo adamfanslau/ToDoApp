@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ToDoApp.Models;
 using System.Data.Entity;
+using ToDoApp.ViewModels;
 
 namespace ToDoApp.Controllers
 {
@@ -28,6 +29,24 @@ namespace ToDoApp.Controllers
             var myTasks = _context.MyTasks.Include(t => t.TaskStatus).ToList();
             
             return View(myTasks);
+        }
+
+        public ActionResult New()
+        {
+            var newTask = new MyTask();
+            
+            return View(newTask);
+        }
+
+        [HttpPost]
+        public ActionResult Save(MyTask myTask)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View("New", myTask);
+            }
+
+            return View("New", myTask);
         }
     }
 }

@@ -1,0 +1,32 @@
+﻿@model ToDoApp.Models.MyTask
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Task</h2>
+
+@using (Html.BeginForm("Save", "MyTasks"))
+{
+    @Html.ValidationSummary()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @rows = 6 })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Deadline)
+        @Html.TextBoxFor(m => m.Deadline, "{0:dd/MM/yyyy HH:mm}" , new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Deadline)
+    </div>
+    @Html.HiddenFor(m => m.Id)
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
