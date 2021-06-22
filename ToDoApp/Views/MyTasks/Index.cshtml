@@ -13,9 +13,9 @@
 else
 {
 <p>You have @Model.Count() active tasks.</p>
-@Html.ActionLink("New Task", "New", "MyTasks", new { @class = "btn btn-primary"})
+@Html.ActionLink("New Task", "New", "MyTasks", null, new { @class = "btn btn-primary"})
     <hr />
-    <table class="table table-bordered table-hover">
+    <table id="myTasks" class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Task</th>
@@ -38,4 +38,13 @@ else
             }
         </tbody>
     </table>
+}
+
+@section scripts 
+{
+    <script>
+        $(document).ready(function () {
+            $("#myTasks").DataTable();
+        });
+    </script>
 }
