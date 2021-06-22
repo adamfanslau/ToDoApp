@@ -39,16 +39,35 @@ namespace ToDoApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(MyTask myTask)
+        public ActionResult SaveNew(MyTask myTask)
         {
             if(!ModelState.IsValid)
             {
                 return View("New", myTask);
             }
 
-            return View("New", myTask);
+            myTask.TaskStatusId = 1;
+            myTask.Created = DateTime.Now;
+
+            _context.MyTasks.Add(myTask);
+            
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "MyTasks");
         }
 
+        public ActionResult Edit(int id)
+        {
+            var myTask = _context.MyTasks.SingleOrDefault(t => t.Id == id);
+
+            if (myTask == null)
+            {
+                return HttpNotFound();
+            }
+
+
+        }
+        
         public ViewResult Abandoned()
         {
             var myTasks = _context.MyTasks.Include(t => t.TaskStatus).ToList();

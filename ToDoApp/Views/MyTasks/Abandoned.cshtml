@@ -19,6 +19,8 @@ else
                 <th>Created</th>
                 <th>Deadline</th>
                 <th>Status</th>
+                <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -26,12 +28,13 @@ else
             {
                 if (task.TaskStatusId == 5)
                 {
-                    <tr>
-                        <td>@task.Name</td>
-                        <td>@task.Created</td>
-                        <td>@task.Deadline</td>
-                        <td>@task.TaskStatus.Name</td>
-                    </tr>
+            <tr>
+                <td>@task.Name</td>
+                <td>@task.Created</td>
+                <td>@task.Deadline</td>
+                <td>@task.TaskStatus.Name</td>
+                <td><a href=""> View/Edit </a> | <a href=""> Delete </a></td>
+            </tr>
                 }
 
 

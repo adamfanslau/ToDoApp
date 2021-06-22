@@ -1,12 +1,12 @@
 ﻿@model ToDoApp.Models.MyTask
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = "New Task";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>New Task</h2>
 
-@using (Html.BeginForm("Save", "MyTasks"))
+@using (Html.BeginForm("SaveNew", "MyTasks"))
 {
     @Html.ValidationSummary()
 

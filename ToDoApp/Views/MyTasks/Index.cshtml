@@ -12,6 +12,9 @@
 }
 else
 {
+<p>You have @Model.Count() active tasks.</p>
+@Html.ActionLink("New Task", "New", "MyTasks", new { @class = "btn btn-primary"})
+    <hr />
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
@@ -19,16 +22,18 @@ else
                 <th>Created</th>
                 <th>Deadline</th>
                 <th>Status</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var task in Model)
             {
             <tr>
-                <td>@task.Name</td>
+                <td><a href=""> @task.Name </a></td>
                 <td>@task.Created</td>
                 <td>@task.Deadline</td>
                 <td>@task.TaskStatus.Name</td>
+                <td><a href=""> View/Edit </a> | <a href=""> Abandon </a></td>
             </tr>
             }
         </tbody>
