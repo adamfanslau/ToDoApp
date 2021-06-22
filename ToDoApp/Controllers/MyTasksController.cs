@@ -65,7 +65,48 @@ namespace ToDoApp.Controllers
                 return HttpNotFound();
             }
 
+            var viewModel = new MyTaskViewModel()
+            {
+                MyTask = myTask,
+                TaskStatuses = _context.TaskStatuses.ToList()
+            };
 
+            return View("Edit", viewModel);
+        }
+
+        public ActionResult SaveEdited(MyTask myTask)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit", myTask);
+            }
+
+            var myTaskInDb = _context.MyTasks.Single(t => t.Id == myTask.Id);
+
+            myTaskInDb.Name = myTask.Name;
+            myTaskInDb.Description = myTask.Description;
+            myTaskInDb.Deadline = myTask.Deadline;
+            myTaskInDb.TaskStatusId = myTask.TaskStatusId;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "MyTasks");
+        }
+
+        public ActionResult Delete(int id)
+        {
+
+            var taskToRemove = _context.MyTasks.SingleOrDefault(t => t.Id == id);
+
+            if (taskToRemove == null)
+            {
+                return HttpNotFound();
+            }
+
+            _context.MyTasks.Remove(taskToRemove);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "MyTasks");
         }
         
         public ViewResult Abandoned()

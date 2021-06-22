@@ -1,0 +1,41 @@
+﻿@model ToDoApp.ViewModels.MyTaskViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("SaveEdited", "MyTasks"))
+{
+    @Html.ValidationSummary()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.MyTask.Created)
+        @Html.TextBoxFor(m => m.MyTask.Created, new { @class = "form-control", disabled = "disabled" })
+    </div>    
+    <div class="form-group">
+        @Html.LabelFor(m => m.MyTask.Name)
+        @Html.TextBoxFor(m => m.MyTask.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MyTask.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MyTask.Description)
+        @Html.TextAreaFor(m => m.MyTask.Description, new { @class = "form-control", @rows = 6 })
+        @Html.ValidationMessageFor(m => m.MyTask.Description)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MyTask.Deadline)
+        @Html.TextBoxFor(m => m.MyTask.Deadline, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MyTask.Deadline)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MyTask.TaskStatusId)
+        @Html.DropDownListFor(m => m.MyTask.TaskStatusId, new SelectList(Model.TaskStatuses, "Id", "Name"), new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.MyTask.TaskStatusId)
+    </div>
+    @Html.HiddenFor(m => m.MyTask.Id)
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

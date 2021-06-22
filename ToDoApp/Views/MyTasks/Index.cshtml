@@ -29,11 +29,11 @@ else
             @foreach (var task in Model)
             {
             <tr>
-                <td><a href=""> @task.Name </a></td>
+                <td>@Html.ActionLink(task.Name, "Edit", "MyTasks", new { id = task.Id}, null)</td>
                 <td>@task.Created</td>
                 <td>@task.Deadline</td>
                 <td>@task.TaskStatus.Name</td>
-                <td><a href=""> View/Edit </a> | <a href=""> Abandon </a></td>
+                <td>@Html.ActionLink("View/Edit", "Edit", "MyTasks", new { id = task.Id }, null) | @Html.ActionLink("Delete", "Delete", "MyTasks", new { id = task.Id }, null)</td>
             </tr>
             }
         </tbody>
