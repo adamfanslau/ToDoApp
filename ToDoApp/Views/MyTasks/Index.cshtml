@@ -44,7 +44,25 @@ else
 {
     <script>
         $(document).ready(function () {
-            $("#myTasks").DataTable();
+            $("#myTasks").DataTable({
+                "rowCallback": function (row, data, index) {
+                    if (data[3] == "To Do") {
+                        $('td', row).css('background-color', '#d4ffbf');
+                    }
+                    else if (data[3] == "Abandoned") {
+                        $('td', row).css('background-color', '#ffbfbf');
+                    }
+                    else if (data[3] == "In Progress") {
+                        $('td', row).css('background-color', '#bfe5ff');
+                    }
+                    else if (data[3] == "Suspended") {
+                        $('td', row).css('background-color', '#fffdbf');
+                    }
+                    else {
+                        $('td', row).css('background-color', '#f5f5f5');
+                    }
+                }
+            });
         });
 
         $("#myTasks").on("click", ".js-delete", function () {
