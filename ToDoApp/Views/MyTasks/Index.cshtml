@@ -33,7 +33,7 @@ else
                 <td>@task.Created</td>
                 <td>@task.Deadline</td>
                 <td>@task.TaskStatus.Name</td>
-                <td>@Html.ActionLink("View/Edit", "Edit", "MyTasks", new { id = task.Id }, null) | @Html.ActionLink("Delete", "Delete", "MyTasks", new { id = task.Id }, null)</td>
+                <td>@Html.ActionLink("View/Edit", "Edit", "MyTasks", new { id = task.Id }, null) | <button class='btn-link js-delete' data-customer-id=@task.Id>Delete</button></td>
             </tr>
             }
         </tbody>
@@ -46,5 +46,17 @@ else
         $(document).ready(function () {
             $("#myTasks").DataTable();
         });
+
+        $("#myTasks").on("click", ".js-delete", function () {
+
+            var button = $(this);
+
+            bootbox.confirm("Are you sure you want to delete this task?", function (result) {
+                if (result) {
+                    window.location = "/MyTasks/Delete/" + button.attr("data-customer-id");
+                }
+            });
+        });
+
     </script>
 }
