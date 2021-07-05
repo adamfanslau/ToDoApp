@@ -33,7 +33,7 @@ else
                 <td>@task.Created</td>
                 <td>@task.Deadline</td>
                 <td>@task.TaskStatus.Name</td>
-                <td>@Html.ActionLink("View/Edit", "Edit", "MyTasks", new { id = task.Id }, null) | <button class='btn-link js-delete' data-customer-id=@task.Id>Delete</button></td>
+                <td>@Html.ActionLink("View/Edit", "Edit", "MyTasks", new { id = task.Id }, null)  <button class='btn-link js-delete' data-customer-id=@task.Id>Delete</button></td>
             </tr>
             }
         </tbody>
