@@ -1,6 +1,6 @@
 # ToDoApp
 Simple todo CRUD application
-# Technologies used:
+## Technologies used:
 - C#, asp.net, mvc framework
 - entity framework (code-first approach)
 - jquery (DataTables, Bootbox plugins)
