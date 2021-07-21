@@ -13,7 +13,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.MyTask.Created)
         @Html.TextBoxFor(m => m.MyTask.Created, new { @class = "form-control", disabled = "disabled" })
-    </div>    
+    </div>
     <div class="form-group">
         @Html.LabelFor(m => m.MyTask.Name)
         @Html.TextBoxFor(m => m.MyTask.Name, new { @class = "form-control" })
@@ -26,12 +26,12 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.MyTask.Deadline)
-        @Html.TextBoxFor(m => m.MyTask.Deadline, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.MyTask.Deadline, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control", @id = "deadlinedatetime" })
         @Html.ValidationMessageFor(m => m.MyTask.Deadline)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.MyTask.TaskStatusId)
-        @Html.DropDownListFor(m => m.MyTask.TaskStatusId, new SelectList(Model.TaskStatuses, "Id", "Name"), new { @class = "form-control"})
+        @Html.DropDownListFor(m => m.MyTask.TaskStatusId, new SelectList(Model.TaskStatuses, "Id", "Name"), new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.MyTask.TaskStatusId)
     </div>
     @Html.HiddenFor(m => m.MyTask.Id)
@@ -39,3 +39,14 @@
     <button type="submit" class="btn btn-primary">Save</button>
 }
 
+@section scripts
+{
+    <script>
+        $("#deadlinedatetime").flatpickr({
+            enableTime: true,
+            dateFormat: "d-m-Y H:i",
+            time_24hr: true,
+            defaultDate: "@Model.MyTask.Deadline.ToString()"
+        });
+    </script>
+}

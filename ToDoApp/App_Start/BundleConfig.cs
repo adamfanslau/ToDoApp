@@ -11,7 +11,8 @@ namespace ToDoApp
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/DataTables/jquery.datatables.js",
-                        "~/Scripts/DataTables/datatables.bootstrap.js"
+                        "~/Scripts/DataTables/datatables.bootstrap.js",
+                        "~/Scripts/flatpickr.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -30,6 +31,7 @@ namespace ToDoApp
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/DataTables/css/datatables.bootstrap.css",
+                      "~/Content/flatpickr.css",
                       "~/Content/site.css"));
         }
     }

@@ -22,7 +22,7 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Deadline)
-        @Html.TextBoxFor(m => m.Deadline, "{0:dd/MM/yyyy HH:mm}" , new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Deadline, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control", @id = "deadlinedatetime" })
         @Html.ValidationMessageFor(m => m.Deadline)
     </div>
     @Html.HiddenFor(m => m.Id)
@@ -30,3 +30,14 @@
     <button type="submit" class="btn btn-primary">Save</button>
 }
 
+@section scripts
+{
+    <script>
+        $("#deadlinedatetime").flatpickr({
+            enableTime: true,
+            dateFormat: "d-m-Y H:i",
+            time_24hr: true,
+            defaultDate: "today"
+        });
+    </script>
+}
